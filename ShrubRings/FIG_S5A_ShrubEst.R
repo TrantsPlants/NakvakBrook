@@ -47,7 +47,7 @@ ggplot()+
   scale_y_continuous(sec.axis = sec_axis(~.+5, name = "Mean July temperature (°C)"))+
   theme_pubr(base_size = 10, legend = 'bottom')
 
-#Save dimensions: 5" x 5"
+#Save dimensions: 5" x 3"
 
 #Creating 'AllSamples.csv' file ---
 nb1<-read.rwl("AllSamplesNB1.csv")
