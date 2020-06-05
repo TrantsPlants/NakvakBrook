@@ -1,4 +1,4 @@
-# Analysis of shrub establishment and growth data
+# Analysis of shrub establishment and growth data - Supplementary Figure S5a
 # Emma Davis - emmalaureldavis@gmail.com
 
 # Load packages
