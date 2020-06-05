@@ -1,19 +1,18 @@
-######################################################
-### Shrub establishment and growth data            ###
-# APRIL 1, 2020      ------------------------------  #
-######################################################
-rm(list=ls())
-setwd("~/Desktop/Labrador Project/Nakvak Shrubs/All NB")
+# Analysis of shrub establishment and growth data
+# Emma Davis - emmalaureldavis@gmail.com
 
-nb1<-read.rwl("AllSamplesNB1.csv")
-nb2<-read.rwl("AllSamplesNB2.csv")
-nb3<-read.rwl("AllSamplesNB3.csv")
-ind.samp <- read.csv("AllIndSamples.csv")
+#Packages ----
+library(readr)
+library(dplR)
+library(ggplot2)
+library(ggsci)
+library(ggpubr)
 
+#Binding together sampels from 3 transects - nb1, nb2, and nb3
 all <- rbind(nb1, nb2, nb3)
 
 #Establishment plot
-show_col(pal_jco("default")(10))
+#Select colour to use - based on pal_npg
 pal <- c('#4A6990FF', '#8F7700FF', '#CD534CFF')  
 
 ggplot(ind.samp, aes(x = MeanEst, fill = SPP))+
