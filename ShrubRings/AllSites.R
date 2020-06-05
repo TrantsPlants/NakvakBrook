@@ -1,18 +1,25 @@
 # Analysis of shrub establishment and growth data
 # Emma Davis - emmalaureldavis@gmail.com
 
-#Packages ----
+# Load packages
 library(readr)
 library(dplR)
 library(ggplot2)
 library(ggsci)
 library(ggpubr)
 
-#Binding together sampels from 3 transects - nb1, nb2, and nb3
+# Load up data
+rm(list=ls())
+
+nb1<-read.rwl("AllSamplesNB1.csv")
+nb2<-read.rwl("AllSamplesNB2.csv")
+nb3<-read.rwl("AllSamplesNB3.csv")
+ind.samp <- read.csv("AllIndSamples.csv")
+
+#Bind data from 3 transects together into site-level
 all <- rbind(nb1, nb2, nb3)
 
-#Establishment plot
-#Select colour to use - based on pal_npg
+#Establishment plot - Histogram with climate overlay
 pal <- c('#4A6990FF', '#8F7700FF', '#CD534CFF')  
 
 ggplot(ind.samp, aes(x = MeanEst, fill = SPP))+
@@ -24,7 +31,8 @@ ggplot(ind.samp, aes(x = MeanEst, fill = SPP))+
   theme_pubr(base_size = 10, legend = 'bottom')+
   labs(fill = "Species")
 
-clim <- read_csv("~/Desktop/Labrador Project/Climate Data/Nakvak Local/Nakvak_Interp_MoMean.csv")
+clim <- read_csv("Nakvak_Interp_MoMean.csv")
+
 ave.clim <- clim %>%
   filter(., Year > 1996) %>%
   mutate(Tave_07_scale = Tave_07-9.071991)
