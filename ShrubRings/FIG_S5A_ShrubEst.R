@@ -12,13 +12,8 @@ library(dplyr)
 # Load up data
 rm(list=ls())
 
-nb1<-read.rwl("AllSamplesNB1.csv")
-nb2<-read.rwl("AllSamplesNB2.csv")
-nb3<-read.rwl("AllSamplesNB3.csv")
-ind.samp <- read.csv("AllIndSamples.csv")
-
-#Bind data from 3 transects together into site-level
-all <- rbind(nb1, nb2, nb3)
+ind.samp <- read.csv("AllIndSamples.csv") %>%
+  mutate()
 
 #Establishment plot - Histogram with climate overlay
 pal <- c('#4A6990FF', '#8F7700FF', '#CD534CFF')  
@@ -54,6 +49,13 @@ ggplot()+
 
 #5 x 5 is good
 
+#Creating AllSamples.csv
+nb1<-read.rwl("AllSamplesNB1.csv")
+nb2<-read.rwl("AllSamplesNB2.csv")
+nb3<-read.rwl("AllSamplesNB3.csv")
+
+#Bind data from 3 transects together into site-level
+all <- rbind(nb1, nb2, nb3)
 #write.csv(all, 'AllSamples.csv')
 
 
