@@ -81,6 +81,7 @@ rownames(BEGL.3ave)<- c(seq(1997,2017))
 BEGL <- combine.rwl(BEGL.1ave, BEGL.2ave) %>%
   combine.rwl(., BEGL.3ave)
 interseries.cor(BEGL)   #Interseries correlations
+rwl.report(BEGL)
 
 #Drop series that have been remeasured but don't cross-date well
 BEGL2 <- BEGL[,c(5:6, 8:18)]
